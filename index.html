@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="" />
+  <head>
+    <title>Javascript Form Validation</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="loginbox">
+      <img src="img/avatar.png" class="avatar" />
+
+      <h1>Signup Here</h1>
+      <form>
+        <div class="form-field">
+          <!-- <label for="">Username</label> -->
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Enter Username"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+        <div class="form-field">
+          <!-- <label>Email address</label> -->
+          <input
+            type="Email"
+            name="user_email"
+            id="user_email"
+            placeholder="Enter Email"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+        <div class="form-field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+        <div class="form-field">
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Re-enter Password"
+            autocomplete="off"
+          />
+          <small></small>
+        </div>
+        <div class="form-field">
+          <input type="submit" name="submit" value="Sign UP" id="signup" />
+        </div>
+        <a href="">Already have an account? Login!</a>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
