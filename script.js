@@ -123,7 +123,7 @@ const isPasswordSecure = (password) => {
   return re.test(password);
 };
 
-form.addEventListener("submit", function (e) {
+form.addEventListener("click", function (e) {
   //   Prevent the form from submitting
   e.preventDefault();
 
