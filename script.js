@@ -1,4 +1,4 @@
-import { validator } from "./lib/utils.js";
+import { debounce, validator } from "./lib/utils.js";
 
 const usernameEl = document.querySelector("#username");
 const emailEl = document.querySelector("#user_email");
@@ -6,7 +6,29 @@ const passwordEl = document.querySelector("#password");
 const confirmPasswordEl = document.querySelector("#confirm-password");
 
 const formInputs = [usernameEl, emailEl, passwordEl, confirmPasswordEl];
+const showError = (input) => {
+  const formField = input.parentElement;
 
+  //add the error class
+  formField.classList.remove("success");
+  formField.classList.add("error");
+};
+
+const showSuccess = (input) => {
+  const formField = input.parentElement;
+
+  //add the sucess class
+  formField.classList.remove("error");
+  formField.classList.add("success");
+};
+
+const removeAllclass = (input) => {
+  const formField = input.parentElement;
+
+  // remove all clas
+  formField.classList.remove("error");
+  formField.classList.remove("success");
+};
 const rules = {
   username: {
     lengthAtLeast: 5,
@@ -37,14 +59,24 @@ const onInputChange = (event) => {
     allFormValues,
   });
 
-  if (validationResults.length === 0) {
+  // Check if the input field is empty
+  if (value.trim() === "") {
+    removeAllclass(event.target);
+    event.target.parentElement.querySelector(".validation-info").innerText = "";
+    return; // Do nothing if the input is empty
+  } else if (validationResults.length === 0) {
+    showSuccess(event.target);
     event.target.parentElement.querySelector(".validation-info").innerText = "";
   } else {
+    showError(event.target);
     event.target.parentElement.querySelector(".validation-info").innerText =
       validationResults.join(",");
+    showError(event.target);
   }
 };
+const debounceInputChange = debounce(onInputChange, 500);
 
 formInputs.forEach((input) => {
-  input.addEventListener("input", onInputChange);
+  input.addEventListener("input", debounceInputChange);
 });
+// console.log(formInputs);
