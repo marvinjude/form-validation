@@ -67,14 +67,7 @@ h1 {
   font-weight: bold;
 }
 
-.loginbox input {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.loginbox input[type="text"],
-input[type="password"],
-input[type="Email"] {
+.form-field input {
   border: none;
   border-bottom: 1px solid #fff;
   background: transparent;
@@ -82,9 +75,11 @@ input[type="Email"] {
   height: 40px;
   color: #fff;
   font-size: 16px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.loginbox input[type="submit"] {
+.submit-btn {
   border: none;
   outline: none;
   height: 40px;
@@ -94,19 +89,19 @@ input[type="Email"] {
   border-radius: 20px;
 }
 
-.loginbox input[type="submit"]:hover {
+.form-field input[type="submit"]:hover {
   cursor: pointer;
   background: #ffc107;
   color: #000;
 }
 
-.loginbox a {
+.alt-text {
   text-decoration: none;
   font-size: 12px;
   line-height: 20px;
   color: darkgrey;
 }
 
-.loginbox a:hover {
+.alt-text:hover {
   color: #ffc107;
 }
